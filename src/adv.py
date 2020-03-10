@@ -60,7 +60,9 @@ print("What direction would you like to go next?")
 
 while True:
 
-    player_input = input("[n] North  [e] East  [s] South  [w] West  [q] Quit\n").lower()
+    player_input = (input(
+        "[n] North  [e] East  [s] South  [w] West  [q] Quit\n"
+    ).lower())
 
     current_room = player.current_room
     print()
