@@ -40,9 +40,7 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Player("Tom", room['outside']);
-
-print(player)
+player = Player("Tom", room['outside'])
 
 # Write a loop that:
 #
@@ -54,3 +52,50 @@ print(player)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+print("Welcome to the adventure game. ")
+print("You must navigate to where you would like to go.")
+print(player)
+print("What direction would you like to go next?")
+
+while True:
+
+    player_input = input("[n] North  [e] East  [s] South  [w] West  [q] Quit\n").lower()
+
+    current_room = player.current_room
+    print()
+    print(player)
+
+    if player_input == 'n':
+        print("You are traveling north.\n")
+    elif player_input == 'e':
+        print("You are traveling east.\n")
+    elif player_input == 's':
+        print("You are traveling south.\n")
+    elif player_input == 'w':
+        print("You are traveling west.\n")
+    elif player_input == 'q':
+        print("Thank you for playing!\n")
+        break
+    else:
+        print("Invalid travel direction. Please select again.\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
