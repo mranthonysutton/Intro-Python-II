@@ -1,6 +1,7 @@
 from room import Room
 from player import Player
 
+import os
 
 # Declare all the rooms
 
@@ -55,33 +56,27 @@ player = Player("Tom", room['outside'])
 # If the user enters "q", quit the game.
 
 print("Welcome to the adventure game. ")
-print("You must navigate to where you would like to go.")
+print("You must navigate to where you would like to go.\n")
 print(player)
 print(player.current_room.description + "\n")
-print("What direction would you like to go next?")
+print("List of available actions:")
+print("Travel: (n) North (e) East (s) South (w) West")
+print("\nWhat would you like to do?")
 
 while True:
 
-    player_input = (input(
-        "[n] North  [e] East  [s] South  [w] West  [q] Quit\n"
-    ).lower())
+    player_input = input("> ")
+
+    # Sets the available directions for the user
+    acceptable_travel_directions = ['n', 'e', 's', 'w']
 
     print()
-    print(player)
+    print("=" * 20 + "\n")
 
-    if player_input == 'n':
-        print("You are traveling north.\n")
-        player.move(player_input)
-    elif player_input == 'e':
-        print("You are traveling east.\n")
-        player.move(player_input)
-    elif player_input == 's':
-        print("You are traveling south.\n")
-        player.move(player_input)
-    elif player_input == 'w':
-        print("You are traveling west.\n")
+    if player_input.lower() in acceptable_travel_directions:
         player.move(player_input)
     elif player_input == 'q':
+        os.system("clear")
         print("Thank you for playing!\n")
         break
     else:
