@@ -1,7 +1,15 @@
 from room import Room
 from player import Player
+from item import Item
 
 import os
+
+# Items
+item = {
+    'sword': Item("Sword", "Basic sword"),
+    "axe": Item("Axe", "Used to chop wood. Mostly."),
+    "wand": Item("Wand", "What? Do you think you're a wizard?")
+}
 
 # Declare all the rooms
 
@@ -42,7 +50,8 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Player("Tom", room['outside'])
+# player = Player("Tom", room['outside'], [item["axe"], item["sword"]])
+player = Player("Tom", room['outside']) 
 
 # Write a loop that:
 #
@@ -61,6 +70,7 @@ print(player)
 print(player.current_room.description + "\n")
 print("List of available actions:")
 print("Travel: (n) North (e) East (s) South (w) West")
+print("Player: (i) Inventory (q) quit")
 print("\nWhat would you like to do?")
 
 while True:
@@ -69,18 +79,21 @@ while True:
 
     # Sets the available directions for the user
     acceptable_travel_directions = ['n', 'e', 's', 'w']
+    acceptable_player_actions = ['i', 'inventory']
 
     print()
     print("=" * 20 + "\n")
 
     if player_input.lower() in acceptable_travel_directions:
         player.move(player_input)
+    if player_input.lower() in acceptable_player_actions:
+        player.items_in_inventory()
     elif player_input == 'q':
         os.system("clear")
         print("Thank you for playing!\n")
         break
     else:
-        print("Invalid travel direction. Please select again.\n")
+        print("Invalid operation. Please select again.\n")
 
 
 
