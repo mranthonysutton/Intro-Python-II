@@ -50,8 +50,8 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-# player = Player("Tom", room['outside'], [item["axe"], item["sword"]])
-player = Player("Tom", room['outside']) 
+player = Player("Tom", room['outside'], [item["axe"], item["sword"]])
+# player = Player("Tom", room['outside'])
 
 # Write a loop that:
 #
@@ -86,7 +86,7 @@ while True:
 
     if player_input.lower() in acceptable_travel_directions:
         player.move(player_input)
-    if player_input.lower() in acceptable_player_actions:
+    elif player_input.lower() in acceptable_player_actions:
         player.items_in_inventory()
     elif player_input == 'q':
         os.system("clear")
