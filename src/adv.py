@@ -57,6 +57,7 @@ player = Player("Tom", room['outside'])
 print("Welcome to the adventure game. ")
 print("You must navigate to where you would like to go.")
 print(player)
+print(player.current_room.description + "\n")
 print("What direction would you like to go next?")
 
 while True:
