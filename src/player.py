@@ -16,7 +16,7 @@ class Player:
 
         # Check if that direction can be moved from the rooms
         # If an error, inform the player
-        # else, set the new room
+        # else, set the new room based upon the attributes
         if hasattr(self.current_room, move_to):
             current_room = getattr(self.current_room, move_to)
             self.current_room = current_room

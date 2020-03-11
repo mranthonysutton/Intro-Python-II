@@ -1,6 +1,7 @@
 from room import Room
 from player import Player
 
+
 # Declare all the rooms
 
 room = {
@@ -64,7 +65,6 @@ while True:
         "[n] North  [e] East  [s] South  [w] West  [q] Quit\n"
     ).lower())
 
-    current_room = player.current_room
     print()
     print(player)
 
