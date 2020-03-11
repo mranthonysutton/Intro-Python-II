@@ -70,12 +70,16 @@ while True:
 
     if player_input == 'n':
         print("You are traveling north.\n")
+        player.move(player_input)
     elif player_input == 'e':
         print("You are traveling east.\n")
+        player.move(player_input)
     elif player_input == 's':
         print("You are traveling south.\n")
+        player.move(player_input)
     elif player_input == 'w':
         print("You are traveling west.\n")
+        player.move(player_input)
     elif player_input == 'q':
         print("Thank you for playing!\n")
         break
