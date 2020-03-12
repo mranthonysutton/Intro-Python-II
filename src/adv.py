@@ -4,13 +4,6 @@ from item import Item
 
 import os
 
-# Items
-item = {
-    'sword': Item("Sword", "Basic sword"),
-    "axe": Item("Axe", "Used to chop wood. Mostly."),
-    "wand": Item("Wand", "What? Do you think you're a wizard?")
-}
-
 # Declare all the rooms
 
 room = {
@@ -22,14 +15,17 @@ passages run north and east."""),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", Item("axe", """Used to
+    chop wood. Mostly...""")),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
 to north. The smell of gold permeates the air."""),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", [Item("wand", """What?
+    Do you think you're a wizard?"""), Item("coin", """You find a coin
+    that has been left behind.""")]),
 }
 
 
@@ -70,7 +66,7 @@ print(player)
 print(player.current_room.description + "\n")
 print("Command Table\n" + "=" * 30)
 print("Travel: (n) North (e) East (s) South (w) West")
-print("Player: (i) Inventory (q) quit")
+print("Player: (i) Inventory (l) Locate items (q) quit")
 print("\nWhat would you like to do?")
 
 while True:
@@ -88,6 +84,8 @@ while True:
         player.move(player_input)
     elif player_input.lower() in acceptable_player_actions:
         player.items_in_inventory()
+    elif player_input.lower() == "l":
+        player.current_room.items_in_room()
     elif player_input == 'q':
         os.system("clear")
         print("Thank you for playing!\n")
