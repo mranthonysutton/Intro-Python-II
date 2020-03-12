@@ -3,9 +3,15 @@
 
 
 class Room:
-    def __init__(self, name, description):
+    def __init__(self, name, description, items=[]):
         self.name = name
         self.description = description
+        self.items = items
 
     def __str__(self):
         return (f"{self.name}")
+
+    def items_in_room(self):
+        if len(self.items) >= 1:
+            for item in self.items:
+                print(f"{item.name}")
