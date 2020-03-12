@@ -34,7 +34,7 @@ class Player:
     # Adds an item to the player's inventory
     def add_item(self, item):
         self.inventory.append(item)
-        print(f"You have picked up {item}.")
+        print(f"You have picked up the {item}.")
 
     # Displays all the items in the inventory
     def items_in_inventory(self):

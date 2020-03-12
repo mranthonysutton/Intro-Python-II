@@ -50,8 +50,8 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-player = Player("Tom", room['outside'], [item["axe"], item["sword"]])
-# player = Player("Tom", room['outside'])
+player = Player(input("What is your name? "), room['outside'])
+os.system("clear")
 
 # Write a loop that:
 #
@@ -68,7 +68,7 @@ print("Welcome to the adventure game. ")
 print("You must navigate to where you would like to go.\n")
 print(player)
 print(player.current_room.description + "\n")
-print("List of available actions:")
+print("Command Table\n" + "=" * 30)
 print("Travel: (n) North (e) East (s) South (w) West")
 print("Player: (i) Inventory (q) quit")
 print("\nWhat would you like to do?")
@@ -94,23 +94,3 @@ while True:
         break
     else:
         print("Invalid operation. Please select again.\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
