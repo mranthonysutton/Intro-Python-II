@@ -20,6 +20,9 @@ class Room:
     def remove_item(self, item):
         self.item_list.remove(item)
 
+    def add_item(self, item):
+        self.item_list.append(item)
+
     def items_in_room(self):
         # Checks if an item list of a room is empty and returns an error
         if self.item_list == []:
@@ -34,7 +37,7 @@ class Room:
             if item_name.lower() == item.name.lower():
                 return item
             else:
-                print("That item does not exist.")
+                print("You broke something.")
 
     def pickup_item(self, item):
         if type(self.items) is list:
@@ -46,4 +49,4 @@ class Room:
         else:
             print(self.items)
             Player.add_item(self.items)
-    # TODO: Add list of exists that are available.
+    # TODO: Add list of actions that are available.

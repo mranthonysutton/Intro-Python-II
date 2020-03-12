@@ -36,7 +36,16 @@ class Player:
         self.inventory.append(item)
         print(f"You have picked up the {item}.")
 
-    # Displays all the items in the inventory
+    def drop_item(self, item):
+        self.inventory.remove(item)
+        print(f"You have dropped the {item}")
+
+    def is_item_in_inventory(self, item_name):
+        for item in self.inventory:
+            if item_name.lower() == item.name.lower():
+                return item
+
+        # Displays all the items in the inventory
     def items_in_inventory(self):
         # Loop through inventory and display the item and the description
         # If no items are in the inventory, display a message

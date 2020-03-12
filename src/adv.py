@@ -88,7 +88,6 @@ while True:
     elif player_input.lower() == "l":
         player.current_room.items_in_room()
     elif "get" in player_input.lower():
-        print("Working...")
         player_words = player_input.split()
 
         if len(player_words) > 1:
@@ -99,7 +98,26 @@ while True:
             if found_item:
                 player.add_item(found_item)
                 current_room.remove_item(found_item)
+        else:
+            print("What are you trying to get?")
 
+    elif "drop" in player_input.lower():
+        print("Dropping...")
+
+        player_words = player_input.split()
+
+        if len(player_words) > 1:
+            player_item_selection = player_words[1]
+            player_has_item = player.is_item_in_inventory(
+                player_item_selection)
+
+            if (player_has_item):
+                current_room.add_item(player_has_item)
+                player.drop_item(player_has_item)
+        else:
+            print("What are you trying to drop?")
+
+            print(player_item_selection)
     elif player_input == 'q':
         os.system("clear")
         print("Thank you for playing!\n")
